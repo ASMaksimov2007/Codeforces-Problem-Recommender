@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,18 +20,18 @@
 
 <body>
     <div class="container head">
-        <h2 class="text-center codeforces">CF Problem Recommender</h2>
+        <h2 class="text-center codeforces">Подбор задач Codeforces</h2>
         <div class="row handleblock">
             <div class="col-sm-3"></div>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter Codeforces handle" id="handle_inp" autofocus>
-                <button type="submit" class="btn btn-primary" id="display_values">Go</button>
+                <input type="text" class="form-control" placeholder="Введите хэндл Codeforces" id="handle_inp" autofocus>
+                <button type="submit" class="btn btn-primary" id="display_values">Погнали!</button>
             </div>
             <div class="col-sm-3"></div>
         </div>
     </div>
 
-    <div class="container text-center" id="alert_message">Couldn't fetch data for the user. Check the handle or try again later.</div>
+    <div class="container text-center" id="alert_message">Ошибка при получении данных. Проверьте введенный хэндл.</div>
 
     <div class="container" id="display_block">
         <div class="card">
@@ -39,15 +39,14 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="container">
-                            <h3>Statistics for <p id = "handle_display"></p></h3>
+                            <h3>Статистика пользователя <p id = "handle_display"></p></h3>
                             <br>
-                            <div><b>Current Rating:</b> <p id = "rank_display"></p><span class="badge" id = "current_rank_display"></span></div>
+                            <div><b>Текущий рейтинг:</b> <p id = "rank_display"></p><span class="badge" id = "current_rank_display"></span></div>
                             <br>
-                            <div><b>Max Rating:</b> <p id = "max_rating_display"></p><span class="badge" id = "max_rank_display"></span></div>
+                            <div><b>Максимальный рейтинг:</b> <p id = "max_rating_display"></p><span class="badge" id = "max_rank_display"></span></div>
                             <br>
-                            <!-- <div><b>Current Rank:</b> <p id = "current_rank_display"></p><span class="badge">New</span></div> -->
                             
-                            <div><b>Contests completed:</b> <p id="contest_display"></p></div>
+                            <div><b>Завершенных контестов:</b> <p id="contest_display"></p></div>
                             <br>
                             <div class="text-danger" id = "recent_contests"></div>
                         </div>
@@ -71,7 +70,7 @@
             <div id="problems"></div>
             <div class="col-sm-6">
                 <div class="container block">
-                    <h3 class="text-center">Recommended Problems for <p id="recm_handle"></p></h3>
+                    <h3 class="text-center">Вот что мы подобрали для вас, <p id="recm_handle"></p>:</h3>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card recommendations">
@@ -98,8 +97,8 @@
 
             <div class="col-sm-6">
                 <div class="container block">
-                    <h3 class="text-center">Recent Contests</h3>
-                    <div class="text-danger text-center" id="nocontests"> <br> No contest history!</div>
+                    <h3 class="text-center">Последние контесты</h3>
+                    <div class="text-danger text-center" id="nocontests"> <br>Вы еще не участвовали в рейтинговых контестах!</div>
                     <div class="container recent">
                         <ul class="list-group list-group-flush" id="contestlist">
                             <li class="list-group-item">

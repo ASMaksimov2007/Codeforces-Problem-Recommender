@@ -149,7 +149,7 @@ function hardHigh(x) {
 
 function display_problem_list(contestId) {
 
-    $.get('https://codeforces.com/api/contest.standings', { 'handles': handle, 'contestId': contestId, 'showUnofficial': true })
+    $.get('https://codeforces.com/api/contest.standings', { 'handles': handle, 'contestId': contestId, 'showUnofficial': true, 'lang': 'ru'})
         .done(function (data, status) {
             var contest = new Contest(data)
             for (var x of contest.List) {
@@ -220,7 +220,7 @@ function RecommendProb() {
     $.get(api_url + probsubmitted, { 'handle': handle }, function (data, status) {
         var status1 = data["status"];
         if (status != "success" || status1 != "OK") {
-            err_message("Get your net checked BRO!!");
+            err_message("Проверьте подключение к интернету!");
             return;
         }
         var res = data.result;
@@ -259,11 +259,11 @@ function capitalize(str) {
 
 function tags_n_ratings(ptags, user_prob_set) {
     // Function which takes the set of attempted problems, and all the unique tags of problems attempted by user
-    var req4 = $.get(api_url + userinfo, { 'handles': handle , 'lang': 'en'})
+    var req4 = $.get(api_url + userinfo, { 'handles': handle , 'lang': 'ru'})
         .done(function (data, status) {
             var status1 = data["status"];
             if (status != "success" || status1 != "OK") {
-                err_message("Get your net checked BRO!!");
+                err_message("Проверьте подключение к интернету!");
                 return;
             }
 
@@ -280,7 +280,7 @@ function tags_n_ratings(ptags, user_prob_set) {
                 $('#rank_display').css('color', 'black').text("NA");
                 $('#max_rating_display').css('color', 'black').text("NA");
                 $('#max_rank_display').css('color', 'black').text("");
-                $('#current_rank_display').css('color', 'black').text("Not yet defined");
+                $('#current_rank_display').css('color', 'black').text("не в рейтинге");
             } else {
                 $('#rank_display').css('color', rating_color[curr_rank]).text(curr_rating);
                 $('#max_rating_display').css('color', rating_color[max_rank]).text(maxRating);
@@ -314,13 +314,13 @@ function UserProb(tagname, rating, usersubmits) {
         .done(function (data, status) {
             var status1 = data["status"];
             if (status != "success" || status1 != "OK") {
-                err_message("Get your net checked BRO!!");
+                err_message("Проверьте подключение к интернету!");
                 return;
             }
             var pset = data.result.problems;
             // A precautionary check, since we only pass those tags which the user has attempted, thus being sure that the tag itself exists!
             if (pset.length == 0) {
-                err_message("No such tag exists!");
+                err_message("Тег не найден!");
                 return;
             }
             var pset = data.result.problems //data["result"]["problems"]
@@ -352,7 +352,7 @@ function UserProb(tagname, rating, usersubmits) {
                 if (!set_of_prob.has(idx) && pset[idx]["rating"] <= rating + 200 && pset[idx]["rating"] >= rating - 100) {
                     if (ctr == 1) {
                         // Only print the heading if at least 1 problem of that rating is found in the problemset!
-                        var heading = '<h2 class="recommend"><u>Recommended problems for ' + handle + ' under <em>' + tagname + '</em> tag : </u></h2>';
+                        var heading = '<h2 class="recommend"><u>Вот что мы нашли для ' + handle + ' с <em>' + tagname + '</em> тегами: </u></h2>';
                         problems_div.innerHTML += heading;
                     }
                     var problem_url = get_prob_url + pset[idx].contestId.toString() + "/problem/" + pset[idx].index;
@@ -378,13 +378,13 @@ function EMH(rating, usersubmits) {
         .done(function (data, status) {
             var status1 = data["status"];
             if (status != "success" || status1 != "OK") {
-                err_message("Get your net checked BRO!!");
+                err_message("Проверьте подключение к интернету!");
                 return;
             }
             var pset = data.result.problems;
             // A precautionary check, since we only pass those tags which the user has attempted, thus being sure that the tag itself exists!
             if (pset.length == 0) {
-                err_message("No Recommendations");
+                err_message("Нет рекомендованных задач");
                 return;
             }
             // var pset = data.result.problems //data["result"]["problems"]
@@ -523,7 +523,7 @@ $(document).ready(function () {
                 $('#chart_error').hide()
 
                 if (contest_list.length == 0) {
-                    $('#recent_contests').text("User has yet to participate in a contest!")
+                    $('#recent_contests').text("Вы еще не участвовали в рейтинговых контестах!")
                     $('#nocontests').show()
                     $('#chart').hide()
                     $('#chart_error').show()
