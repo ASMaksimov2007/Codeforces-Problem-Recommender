@@ -274,7 +274,7 @@ function tags_n_ratings(ptags, user_prob_set) {
             var max_rank = data.result[0]["maxRank"];
             rating.innerHTML = '';
 
-            var rating_color = { 'newbie': 'gray', 'pupil': 'green', 'specialist': '#03a89e', 'expert': 'blue', 'candidate master': 'violet', 'master': 'orange', 'international master': 'orange', 'grandmaster': 'red', 'international grandmaster': 'red', 'legendary grandmaster': 'red' };
+            var rating_color = { 'новичок': 'gray', 'ученик': 'green', 'специалист': '#03a89e', 'эксперт': 'blue', 'кандидат в мастера': 'violet', 'мастер': 'orange', 'международный мастер': 'orange', 'гроссмейстер': 'red', 'международный гроссмейстер': 'red', 'легендарный гроссмейстер': 'red' };
 
             if (contest_list.length == 0) {
                 $('#rank_display').css('color', 'black').text("NA");
