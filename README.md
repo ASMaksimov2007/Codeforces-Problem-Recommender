@@ -1,4 +1,11 @@
 # Codeforces Problem Recommender
+
+## Important notice
+
+This is a Russian translation of the initial website. Adaptivity and overall structure has been improved.
+
+The idea and the original implementation have both been created by the guys below. You can find all necessary information on the original [GitHub repository](https://github.com/RishabhS66/Codeforces-Problem-Recommender).
+
 ```
 Coded By: Rishabh Srivastava, V. Khagesh Kumar, Pratham Arora, Param Kothari & Rohit Kumar
 ```
