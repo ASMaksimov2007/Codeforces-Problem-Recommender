@@ -2,13 +2,16 @@
 
 ## Important notice
 
-This is a Russian translation of the initial website. Adaptivity and overall structure has been improved.
+This is a fork of the initial website. Adaptivity and overall structure has been improved. The theme is now dark by default, with lots of possible ways to change the look by editing the CSS.
 
 The idea and the original implementation have both been created by the guys below. You can find all necessary information on the original [GitHub repository](https://github.com/RishabhS66/Codeforces-Problem-Recommender).
 
 ```
 Coded By: Rishabh Srivastava, V. Khagesh Kumar, Pratham Arora, Param Kothari & Rohit Kumar
 ```
+
+## Overview
+
 <a href = "https://codeforces.com/">Codeforces</a> is a very popular web platform that hosts competitive programming contests. It also has a multitude of problems of varying difficulty levels for all types of programmers, be it a newbie or an expert. 
 
 Often, users find it difficult to choose unsolved problems to solve for practice. We have built a website that **recommends 3 categories of problems** (**Easy**, **Medium** and **Hard**) to the user, **based on his/her codeforces rating**. The problems are randomly chosen, and are only those which are not solved by the user yet.
@@ -34,7 +37,7 @@ The problems that are unsolved by the user, and also satisfy the above constrain
  </div>
  <br>
  
- 2. Click the **Go** button, or press _Enter_. You will see the **user statistics**, **recommended problems** in all 3 categories, and a list of **recent contests** that the user has participated in on Codeforces.
+2. Click the **Go** button, or press _Enter_. You will see the **user statistics**, **recommended problems** in all 3 categories, and a list of **recent contests** that the user has participated in on Codeforces.
 <div align = "center">
   <kbd>
     <img src = "https://user-images.githubusercontent.com/39689610/117656417-f3a7f600-b1b5-11eb-881c-f55362ae1ab2.png">
