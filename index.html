@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Подбор задач</title>
+    <title>Codeforces Problem Recommender</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/site.webmanifest">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,19 +23,17 @@
 </head>
 
 <body>
-    <div class="container head">
-        <h2 class="text-center codeforces">Подбор задач Codeforces</h2>
-        <div class="row handleblock">
-            <div class="col-sm-3"></div>
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Введите хэндл Codeforces" id="handle_inp" autofocus>
-                <button type="submit" class="btn btn-primary" id="display_values">Погнали!</button>
-            </div>
-            <div class="col-sm-3"></div>
+    <header class="container">
+        <div class="text-center handleblock">
+            <h2 class="text-center codeforces">Codeforces Problem Recommender</h2>
+            <form id="handle-form" class="form-group">
+                <input type="text" class="form-control" placeholder="Enter your handle" id="handle-input" autofocus>
+                <input value="Let's go!" type="submit" class="btn btn-primary">
+            </form>
         </div>
-    </div>
+    </header>
 
-    <div class="container text-center" id="alert_message">Ошибка при получении данных. Проверьте введенный хэндл.</div>
+    <div class="container text-center" id="alert_message">Couldn't fetch user data. Check the handle.</div>
 
     <div class="container" id="display_block">
         <div class="card">
@@ -39,38 +41,38 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="container">
-                            <h3>Статистика пользователя <p id = "handle_display"></p></h3>
+                            <h3>Statistics for <p id="handle_display"></p>
+                            </h3>
                             <br>
-                            <div><b>Текущий рейтинг:</b> <p id = "rank_display"></p><span class="badge" id = "current_rank_display"></span></div>
+                            <div><b>Current rating:</b>
+                                <p id="rank_display"></p><span class="badge" id="current_rank_display"></span>
+                            </div>
                             <br>
-                            <div><b>Максимальный рейтинг:</b> <p id = "max_rating_display"></p><span class="badge" id = "max_rank_display"></span></div>
+                            <div><b>Best rating:</b>
+                                <p id="max_rating_display"></p><span class="badge" id="max_rank_display"></span>
+                            </div>
                             <br>
-                            
-                            <div><b>Завершенных контестов:</b> <p id="contest_display"></p></div>
-                            <br>
-                            <div class="text-danger" id = "recent_contests"></div>
-                        </div>
-                    </div>
-        
-                    <div class="col-sm-6">
-                        <div class="container" id="chart">
-                            <div id="tags" class="hidden to-clear to-hide mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-cell--8-col-desktop">
+                            <div><b>Contests completed:</b>
+                                <p id="contest_display"></p>
                             </div>
                         </div>
-                        <div class="container" id="chart_error">
-                            <div></div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="container" id="chart">
+                            <div id="tags" class="to-clear to-hide">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
 
         <div class="row">
             <div id="problems"></div>
             <div class="col-sm-6">
                 <div class="container block">
-                    <h3 class="text-center">Вот что мы подобрали для вас, <p id="recm_handle"></p>:</h3>
+                    <h3 class="text-center">Your problems for today, <p id="recm_handle"></p>:</h3>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card recommendations">
@@ -97,8 +99,8 @@
 
             <div class="col-sm-6">
                 <div class="container block">
-                    <h3 class="text-center">Последние контесты</h3>
-                    <div class="text-danger text-center" id="nocontests"> <br>Вы еще не участвовали в рейтинговых контестах!</div>
+                    <h3 class="text-center">Recent participations</h3>
+                    <div class="text-danger text-center" id="nocontests"> <br>You haven't competed in a rated contest yet!</div>
                     <div class="container recent">
                         <ul class="list-group list-group-flush" id="contestlist">
                             <li class="list-group-item">
@@ -112,6 +114,6 @@
 
     <div style="margin:20px"></div>
 
-
 </body>
+
 </html>
