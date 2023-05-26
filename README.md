@@ -1,53 +1,35 @@
 # Codeforces Problem Recommender
 
+## TL;DR
+
+`cf-recommender` gives you CF problems to practice taking the rating and solved problems into account.
+
+Try it yourself: [asmaksimov2007.github.io/cf-recommender]()
+
+
 ## Important notice
 
-This is a fork of the initial website. Adaptivity and overall structure has been improved. The theme is now dark by default, with lots of possible ways to change the look by editing the CSS.
+This is a fork of the initial website. Adaptivity and overall structure have been improved. The theme is now dark by default, with lots of possible ways to change the look by editing the CSS. The codestyle and logic have been massively reworked as well (but there is still a huge room for improvement).
 
-The idea and the original implementation have both been created by the guys below. You can find all necessary information on the original [GitHub repository](https://github.com/RishabhS66/Codeforces-Problem-Recommender).
-
-```
-Coded By: Rishabh Srivastava, V. Khagesh Kumar, Pratham Arora, Param Kothari & Rohit Kumar
-```
+The idea and the original implementation have both been created by `Rishabh Srivastava, V. Khagesh Kumar, Pratham Arora, Param Kothari & Rohit Kumar`. You can find all necessary information in the original [GitHub repository](https://github.com/RishabhS66/Codeforces-Problem-Recommender).
 
 ## Overview
 
-<a href = "https://codeforces.com/">Codeforces</a> is a very popular web platform that hosts competitive programming contests. It also has a multitude of problems of varying difficulty levels for all types of programmers, be it a newbie or an expert. 
+The tool fetches the user contest history, public profile data and submissions. The recommended problems' ratings are determined using the formulas below. The problems themselves then get picked out randomly from a problem archive if they satisfy the rating constraints (5 problems for each of 3 difficulty levels are displayed).
 
-Often, users find it difficult to choose unsolved problems to solve for practice. We have built a website that **recommends 3 categories of problems** (**Easy**, **Medium** and **Hard**) to the user, **based on his/her codeforces rating**. The problems are randomly chosen, and are only those which are not solved by the user yet.
+## Logic for problem recommendation
 
-This repository includes all the codes which the website uses. The website can be accessed at http://cfprobrecom.byethost8.com.
-
-## Logic for Problem Recommendation
 After some mathematical analysis and curve fitting, the authors derived the following equations to determine the acceptable range of ratings for the problems recommended in each category.
-<div align = "center">
-  <img src = "https://user-images.githubusercontent.com/39689610/117701922-71372a80-b1e5-11eb-873c-08aaee9b3c02.png" width = "600" height = "173">
- </div>
- <br>
 
-The problems that are unsolved by the user, and also satisfy the above constraints, are pooled together. Problems from these pools are then chosen randomly to be displayed to the user.
+$$
+-21.2 + 25.5e^{-\frac{20 * \text{user rating}}{1000}} \le \text{rating of an \textbf{easy} problem} \le -32.1 + 37.2e^{-\frac{10 * \text{user rating}}{1000}}
+$$
 
+$$
+-38.8 + 44.8e^{-\frac{8 * \text{user rating}}{1000}} \le \text{rating of a \textbf{medium} problem} \le -53.2 + 59.9e^{-\frac{5 * \text{user rating}}{1000}}
+$$
 
-## Demonstration
-1. Open the <a href = "http://cfprobrecom.byethost8.com/">website</a>, and enter your codeforces user handle.
-<div align = "center">
-  <kbd>
-    <img src = "https://user-images.githubusercontent.com/39689610/117656135-9613a980-b1b5-11eb-8c2e-91f8be847113.png">
-  </kbd>
- </div>
- <br>
- 
-2. Click the **Go** button, or press _Enter_. You will see the **user statistics**, **recommended problems** in all 3 categories, and a list of **recent contests** that the user has participated in on Codeforces.
-<div align = "center">
-  <kbd>
-    <img src = "https://user-images.githubusercontent.com/39689610/117656417-f3a7f600-b1b5-11eb-881c-f55362ae1ab2.png">
-  </kbd>
- </div>
- <br>
- <div align = "center">
-  <kbd>
-    <img src = "https://user-images.githubusercontent.com/39689610/117656619-34a00a80-b1b6-11eb-96fc-36cd8abe24fe.png">
-  </kbd>
- </div>
+$$
+-32.0 + 39.9e^{-\frac{8 * \text{user rating}}{1000}} \le \text{rating of a \textbf{hard} problem} \le -30.8 + 39.6e^{-\frac{6 * \text{user rating}}{1000}}
+$$
 
-  
