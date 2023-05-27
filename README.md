@@ -4,7 +4,7 @@
 
 `cf-recommender` gives you CF problems to practice taking the rating and solved problems into account.
 
-Try it yourself: [asmaksimov2007.github.io/cf-recommender]()
+Try it yourself: [maleksware.github.io/cf-recommender]()
 
 
 ## Important notice
